@@ -1,13 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import Main from "./main.js";
-import EmailPage from "./EmailPage"
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App.js";
+import {Provider as AuthProvider} from "./context/AuthContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <EmailPage />
+    <AuthProvider>
+      <App />
+    </AuthProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
-

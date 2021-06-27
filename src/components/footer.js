@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import "./footer.css";
-import logo from "./images/logo.svg";
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
+import "../css/footer.css";
+import logo from "../images/logo.svg";
 
 const Footer = () => {
   useEffect(() => {
@@ -18,8 +18,8 @@ const Footer = () => {
       square.style.left = Math.random() * window.innerWidth + "px";
       square.style.background =
         colors[Math.floor(Math.random() * colors.length)];
-      if(parent){
-      parent.appendChild(square);
+      if (parent) {
+        parent.appendChild(square);
       }
       setTimeout(() => {
         square.remove();
@@ -28,9 +28,8 @@ const Footer = () => {
     setInterval(createSquare, 300);
   }, []);
   let history = useHistory();
-  function HandleSubmit()
-  {
-      history.push(`/login`);     
+  function HandleSubmit() {
+    history.push(`/login`);
   }
   return (
     <div className="footcontainer">
@@ -49,6 +48,7 @@ const Footer = () => {
           <img
             src={logo}
             style={{ height: "100px", width: "100px", display: "inline" }}
+            alt="logo"
           ></img>
           <h1
             style={{ fontWeight: "900", fontSize: "40px", display: "inline" }}
@@ -67,7 +67,9 @@ const Footer = () => {
           Customizable&nbsp;Emails
         </h3>
         <h3 style={{ textDecoration: "underline" }}>Email&nbsp;Automation</h3>
-        <div className="login" onClick={HandleSubmit}>Login</div>
+        <div className="login" onClick={HandleSubmit}>
+          Login
+        </div>
         Connect with us
         <a
           href="https://github.com/2019UCP1350/Flipper"
