@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import "../css/footer.css";
-import logo from "../images/logo.svg";
+import mainlogo from "../images/Favicon-05.svg"
 
 const Footer = () => {
   useEffect(() => {
@@ -38,7 +38,7 @@ const Footer = () => {
       <div className="footcircle circle2">
         <div className="circletext">
           <span>
-            Welcome to <br></br>automated<br></br> mail sender
+            Welcome to <br></br>automated<br></br> mail sender<br></br>EZYMAIL
           </span>
         </div>{" "}
       </div>
@@ -46,7 +46,7 @@ const Footer = () => {
       <div className="sideinfo">
         <div className="company">
           <img
-            src={logo}
+            src={mainlogo}
             style={{ height: "100px", width: "100px", display: "inline" }}
             alt="logo"
           ></img>
@@ -60,13 +60,16 @@ const Footer = () => {
           We automate the mails as per your choice
         </h3>
         <h4>Let us know the periodicty</h4>
-        <h3 style={{ marginTop: "10%", textDecoration: "underline" }}>
-          Email&nbsp;History
+        <h2 style={{ marginTop: "9%", textDecoration: "underline" }}>
+          Key&nbsp;Features :-
+        </h2>
+        <h3 >
+          &#9679;&nbsp;Email&nbsp;History
         </h3>
-        <h3 style={{ textDecoration: "underline" }}>
-          Customizable&nbsp;Emails
+        <h3 >
+          &#9679;&nbsp;Customizable&nbsp;Emails
         </h3>
-        <h3 style={{ textDecoration: "underline" }}>Email&nbsp;Automation</h3>
+        <h3 >&#9679;&nbsp;Email&nbsp;Automation</h3>
         <div className="login" onClick={HandleSubmit}>
           Login
         </div>

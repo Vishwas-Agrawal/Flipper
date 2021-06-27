@@ -112,7 +112,7 @@
   color: #ce7d88;
   border: solid 1px #eac7cc;
 }
-form {
+.form {
   display: flex;
   align-items: center;
   flex-direction: column;

@@ -1,17 +1,17 @@
-import React, {useState,useContext,useEffect} from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { GoogleLogin } from "react-google-login";
-import {Context as AuthContext} from "../context/AuthContext";
+import { Context as AuthContext } from "../context/AuthContext";
 import "../css/Login.css";
 
-const LoginPage = ({history}) => {
-  const {signin,signup,tryLocalLogin,Osignin}=useContext(AuthContext);
+const LoginPage = ({ history }) => {
+  const { signin, signup, tryLocalLogin, Osignup } = useContext(AuthContext);
   const [pink, setPink] = useState("pinkbox");
   const [class_signin, setClass_signin] = useState("signin");
   const [class_signup, setClass_signup] = useState("signup nodisplay");
-  const[email,setEmail]=useState("");
-  const[password,setPassword]=useState("");
-  const[username,setUsername]=useState("");
-  const[cpassword,setCpassword]=useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const [cpassword, setCpassword] = useState("");
   function function1() {
     setPink("pinkbox transform");
     setClass_signup("signup");
@@ -22,7 +22,7 @@ const LoginPage = ({history}) => {
     setClass_signup("signup nodisplay");
     setClass_signin("signin");
   }
-  useEffect(()=>{tryLocalLogin(history)},[tryLocalLogin,history]);
+  useEffect(() => { tryLocalLogin() }, []);
   return (
     <div>
       <div className="logincontainer">
@@ -30,13 +30,13 @@ const LoginPage = ({history}) => {
           <div className={pink}>
             <div className={class_signup}>
               <h1 className="head">register</h1>
-              <form autoComplete="off">
+              <div autoComplete="off " className="form" >
                 <div className="form__group field">
                   <input
-                    type="input"
+                    type="text"
                     className="form__field"
                     placeholder="Username"
-                    onChange={({target})=>{setUsername(target.value)}}
+                    onChange={({ target }) => { setUsername(target.value) }}
                     value={username}
                     required
                   />
@@ -49,7 +49,7 @@ const LoginPage = ({history}) => {
                     type="email"
                     className="form__field"
                     placeholder="Email"
-                    onChange={({target})=>{setEmail(target.value)}}
+                    onChange={({ target }) => { setEmail(target.value) }}
                     value={email}
                     required
                   />
@@ -62,7 +62,7 @@ const LoginPage = ({history}) => {
                     type="password"
                     className="form__field"
                     placeholder="Password"
-                    onChange={({target})=>{setPassword(target.value)}}
+                    onChange={({ target }) => { setPassword(target.value) }}
                     value={password}
                     required
                   />
@@ -75,7 +75,7 @@ const LoginPage = ({history}) => {
                     type="password"
                     className="form__field"
                     placeholder="Password"
-                    onChange={({target})=>{setCpassword(target.value)}}
+                    onChange={({ target }) => { setCpassword(target.value) }}
                     value={cpassword}
                     required
                   />
@@ -83,24 +83,25 @@ const LoginPage = ({history}) => {
                     Confirm Password
                   </label>
                 </div>
-                <button className="buttoni submit" onClick={()=>{signup({email,password,username,history,cpassword})}}>
+                <button className="buttoni submit" onClick={() => { signup({ email, password, username, history, cpassword }) }}>
                   create account
                 </button>
-                <p>
+                <p style={{ textAlign: "center" }}>
                   ------------- <span>OR</span> ------------
-                  <span onClick={()=>{function2()}} style={{textAlign:"center",marginTop:"5px"}}>SignIn with Google</span>
+                  <br></br>
+                  <span onClick={() => { function2() }} style={{ textAlign: "center", marginTop: "5px", width: "100%" }}>SignIn with Google</span>
                 </p>
-              </form>
+              </div>
             </div>
             <div className={class_signin}>
               <h1 className="head">sign in</h1>
-              <form className="more-padding" autoComplete="off">
+              <div className="more-padding form" autoComplete="off">
                 <div className="form__group field">
                   <input
                     type="password"
                     className="form__field"
                     placeholder="username"
-                    onChange={({target})=>{setUsername(target.value)}}
+                    onChange={({ target }) => { setUsername(target.value) }}
                     value={username}
                     required
                   />
@@ -113,7 +114,7 @@ const LoginPage = ({history}) => {
                     type="password"
                     className="form__field"
                     placeholder="password"
-                    onChange={({target})=>{setPassword(target.value)}}
+                    onChange={({ target }) => { setPassword(target.value) }}
                     value={password}
                     required
                   />
@@ -121,7 +122,7 @@ const LoginPage = ({history}) => {
                     Password
                   </label>
                 </div>
-                <button className="buttoni submit" onClick={()=>{console.log("hi manvir");signin({email,password,history})}}>login</button>
+                <button className="buttoni submit" onClick={() => { console.log("hi manvir"); signin({ email, password, history }) }}>login</button>
                 <p>
                   ------------- <span>OR</span> ------------
                 </p>
@@ -129,13 +130,13 @@ const LoginPage = ({history}) => {
                   rel="stylesheet"
                   type="text/css"
                   href="//fonts.googleapis.com/css?family=Open+Sans"
-                async />
+                />
                 <GoogleLogin
                   buttonText="SignIn"
-                  clientId="1095483584862-aodjl57fbm5980mlhueo0rq3m27mm2b9.apps.googleusercontent.com"
-                  onSuccess={(response)=>{Osignin({username:response.profileObj.name,token:response.tokenId,history,email:response.profileObj.email})}}
+                  clientId="1095483584862-to18ei3hbu77vf6tpd558crcnsjdper7.apps.googleusercontent.com"
+                  onSuccess={(response) => { Osignup({ username: response.profileObj.name, token: response.tokenId, history, email: response.profileObj.email }) }}
                 />
-              </form>
+              </div>
             </div>
           </div>
           <div className="leftbox">
