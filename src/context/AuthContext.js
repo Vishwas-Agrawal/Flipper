@@ -64,6 +64,7 @@ const signup = (dispatch) => {
 		}
 		try {
 			const response = Api.post("/register", { username, email, password });
+			console.log("124");
 			await localStorage.setItem("username", response.data.username);
 			await localStorage.setItem("email", response.data.email);
 			dispatch({ type: "signup", payload: { username, email } });
