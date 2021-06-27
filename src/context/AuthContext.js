@@ -63,7 +63,7 @@ const signup = (dispatch) => {
 			return
 		}
 		try {
-			const response = Api.post("/register", { username, email, password });
+			const response = await Api.post("/register", { username, email, password });
 			console.log("124");
 			await localStorage.setItem("username", response.data.username);
 			await localStorage.setItem("email", response.data.email);
